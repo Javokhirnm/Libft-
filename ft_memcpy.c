@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   memcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnematil <jnematil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/25 16:55:15 by jnematil          #+#    #+#             */
-/*   Updated: 2025/01/15 17:55:06 by jnematil         ###   ########.fr       */
+/*   Created: 2025/01/12 00:52:26 by jnematil          #+#    #+#             */
+/*   Updated: 2025/01/12 00:59:28 by jnematil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+void *ft_memcpy(void *dest, const void *src, size_t n)
 {
-    if (c >= 32 && c < 127)
-        return (1);
-    return 0;
+    size_t i;
+
+    i = 0; 
+    if (!dest && !src)
+        return (NULL);
+    if (dest != src)
+    {
+        while (i < n)
+        {
+            ((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+            i++;
+        }
+    }
+    return (dest);
 }

@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   strchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnematil <jnematil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 17:59:04 by jnematil          #+#    #+#             */
-/*   Updated: 2025/01/14 17:59:04 by jnematil         ###   ########.fr       */
+/*   Created: 2025/01/14 18:00:15 by jnematil          #+#    #+#             */
+/*   Updated: 2025/01/14 18:00:15 by jnematil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strchr(const char *str, int search_str)
 {
-	size_t	i;
-	size_t	size;
-	char	*new_str;
+	int	i;
 
 	i = 0;
-	size = ft_strlen(s);
-	new_str = malloc((size + 1) * sizeof(char));
-	if (new_str == NULL)
+	while (str[i] != '\0')
 	{
-		return (NULL);
-	}
-	while (s[i] != '\0')
-	{
-		new_str[i] = s[i];
+		if (str[i] == (char)search_str)
+		{
+			return ((char *)&str[i]);
+		}
 		i++;
 	}
-	new_str[i] = '\0';
-	return (new_str);
+	if (search_str == '\0')
+	{
+		return ((char *)&str[i]);
+	}
+	return (NULL);
 }
